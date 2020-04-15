@@ -1,0 +1,95 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  DisplayStyleGuide: true
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
+    - 'vendor/bundle/**/*'
+    - 'node_modules/**/*'
+
+Rails:
+  Enabled: true
+Rails/FilePath:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - development
+Metrics/AbcSize:
+  Max: 20
+Metrics/ClassLength:
+  Max: 250
+Metrics/ModuleLength:
+  Max: 250
+Metrics/MethodLength:
+  Enabled: true
+  Max: 50
+Metrics/BlockLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+Layout/DotPosition:
+  EnforcedStyle: trailing
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: ignore_implicit
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+Layout/EmptyLinesAroundModuleBody:
+  EnforcedStyle: empty_lines_except_namespace
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/DocumentationMethod:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/CommentAnnotation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Style/LambdaCall:
+  EnforcedStyle: braces
+Style/Lambda:
+  EnforcedStyle: literal
+Style/BlockDelimiters:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  # Specify the default preferred delimiter for all types with the 'default' key
+  # Override individual delimiters (even with default specified) by specifying an individual key
+  PreferredDelimiters:
+    default: ()
+    '%i': '()'
+    '%I': '()'
+    '%r': '{}'
+    '%w': '()'
+    '%W': '()'
+Style/RegexpLiteral:
+  EnforcedStyle: mixed
+  AllowInnerSlashes: false
+
+Bundler/OrderedGems:
+  Enabled: false
