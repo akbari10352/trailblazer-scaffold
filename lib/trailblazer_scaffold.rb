@@ -9,7 +9,9 @@ module TrailblazerScaffold
         return puts 'model does not exists'
       end
       actions = GetActions.new.call(model_name)
+      return unless actions.present?
       TrailblazerScaffold::Contract::Generate.new.call(model)
+      TrailblazerScaffold::Operation::Generate.new.call(model, actions)
     end
 
   end

@@ -12,21 +12,20 @@ module TrailblazerScaffold::Contract
     end
 
     def generate_class_text(model)
-      klass_text = "class #{model}::Contract::Base < Reform::Form\n"
+      klass_text = "module #{model}\n  class Contract::Base < Reform::Form\n"
       properties = get_properties(model)
-      puts properties.to_s
       properties.each do |property|
-        validate_text = property[:null] ? '' : ', validates: { presence: true }'
-        klass_text += "  property :#{property[:name]}#{validate_text}\n"
+        validate_text = property[:allow_null] ? '' : ', validates: { presence: true }'
+        klass_text += "    property :#{property[:name]}#{validate_text}\n"
 
       end
-      klass_text +=  "end\n"
+      klass_text +=  "  end\nend\n"
     end
 
     def get_properties(model)
       model.columns.map do |column|
         next if BLACKLIST_COLUMNS.include? column.name
-        { name: column.name, null: column.null }
+        { name: column.name, allow_null: column.default || column.null }
       end.compact
     end
   end
