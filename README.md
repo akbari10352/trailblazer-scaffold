@@ -15,7 +15,7 @@ make sure you have the actions in your related Controller
 
 run `rails g trailblazer_scaffold:generate {class_name}`
 
-*example*
-`rails g trailblazer_scaffold:generate Shop::Product`
+*example :*
+ `rails g trailblazer_scaffold:generate Shop::Product`
 
 **Make sure you enter the full class name include the nested class too**
