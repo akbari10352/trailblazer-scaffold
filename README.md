@@ -1,6 +1,6 @@
 # trailblazer_scaffold
 
-Trailblazer Scaffold will generate the contracts and operations based on the model and actions.
+Trailblazer Scaffold will generate the contracts and operations based on the model and base actions(*create* *update* *destroy*).
 
 **First step**
 
