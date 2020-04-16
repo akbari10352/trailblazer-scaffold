@@ -1,4 +1,4 @@
-require './lib/version.rb'
+require './lib/trailblazer_scaffold/version.rb'
 
 Gem::Specification.new do |s|
   s.name = %q{trailblazer_scaffold}
@@ -6,10 +6,11 @@ Gem::Specification.new do |s|
   s.date = %q{2020-04-15}
   s.summary = %q{generate operation and contracts based on model and routes}
   s.files = [
-    'lib/contract/generate.rb',
-    'lib/operation/generate.rb',
-    'lib/get_actions.rb',
-    'lib/trailblazer_scaffold.rb'
+    'lib/trailblazer_scaffold/contract/generate.rb',
+    'lib/trailblazer_scaffold/operation/generate.rb',
+    'lib/trailblazer_scaffold/get_actions.rb',
+    'lib/trailblazer_scaffold.rb',
+    'lib/generators/trailblazer_scaffold/generate_generator.rb'
   ]
   s.metadata = {
     'documentation_uri' => 'https://gitlab.com/mehrnoush10352/trailblazer_scaffold',

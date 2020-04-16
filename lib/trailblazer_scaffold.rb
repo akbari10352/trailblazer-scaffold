@@ -1,6 +1,6 @@
-require 'get_actions.rb'
-require 'contract/generate.rb'
-require 'operation/generate.rb'
+require 'trailblazer_scaffold/get_actions.rb'
+require 'trailblazer_scaffold/contract/generate.rb'
+require 'trailblazer_scaffold/operation/generate.rb'
 module TrailblazerScaffold
   class Generate
 
