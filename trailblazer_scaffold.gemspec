@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version = TrailblazerScaffold::Version::VERSION
   s.date = %q{2020-04-15}
   s.summary = %q{generate operations and contracts based on model and actions}
-  s.description = %q{To create files run 'rails g trailblazer_scaffold:generate ClassName', if you have parent classes, type the whole path. for example for 'models/shop/product.rb' "rails g trailblazer_scaffold:generate Shop::Product" }
+  s.description = %q{To create files run 'rails g trailblazer_scaffold:generate ClassName', if you have parent classes, type the whole path. for example for 'models/shop/product.rb' run "rails g trailblazer_scaffold:generate Shop::Product" }
   s.files = [
     'lib/trailblazer_scaffold/contract/generate.rb',
     'lib/trailblazer_scaffold/operation/generate.rb',
