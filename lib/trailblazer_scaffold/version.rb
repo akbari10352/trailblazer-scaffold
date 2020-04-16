@@ -1,5 +1,5 @@
 module TrailblazerScaffold
   module Version
-    VERSION = '0.0.2'
+    VERSION = '0.0.3'
   end
 end
