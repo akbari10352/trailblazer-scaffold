@@ -18,4 +18,4 @@ run `rails g trailblazer_scaffold:generate {class_name}`
 *example :*
  `rails g trailblazer_scaffold:generate Shop::Product`
 
-**Make sure you enter the full class name include the nested class too**
+Make sure that you enter the full class name include the parent classes, for `models/shop/product.rb` use `Shop::Product`
