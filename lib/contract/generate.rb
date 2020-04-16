@@ -3,6 +3,8 @@ module TrailblazerScaffold::Contract
 
     BLACKLIST_COLUMNS = %w(id created_at updated_at)
 
+    PROPERTY_TYPES = %i(integer float boolean)
+
     def call(model)
       model_path = model.to_s.downcase.split('::').join('/')
       dir_path = Rails.root.join('app/concepts', model_path, 'contract')
@@ -12,12 +14,10 @@ module TrailblazerScaffold::Contract
     end
 
     def generate_class_text(model)
-      klass_text = "module #{model}\n  class Contract::Base < Reform::Form\n"
+      klass_text = "class #{model}\n  class Contract::Base < Reform::Form\n"
       properties = get_properties(model)
       properties.each do |property|
-        validate_text = property[:allow_null] ? '' : ', validates: { presence: true }'
-        klass_text += "    property :#{property[:name]}#{validate_text}\n"
-
+        klass_text += "    property :#{property[:name]}#{validation(property)}\n"
       end
       klass_text +=  "  end\nend\n"
     end
@@ -25,8 +25,32 @@ module TrailblazerScaffold::Contract
     def get_properties(model)
       model.columns.map do |column|
         next if BLACKLIST_COLUMNS.include? column.name
-        { name: column.name, allow_null: column.default || column.null }
+        { name: column.name, allow_null: column.default || column.null, type: column.type }
       end.compact
+    end
+
+    def validation(property)
+      presence_validation = validate_presence(property[:allow_null])
+      type_validation = validation_type(property[:type])
+      return unless presence_validation || type_validation
+      ", validates: {#{[presence_validation, type_validation].compact.join(',')} }"
+    end
+
+    def validation_type(type)
+      return  unless PROPERTY_TYPES.include?(type)
+      case type
+      when :integer
+        ' numericality: { only_integer: true }'
+      when :float
+        ' numericality: { only_float: true }'
+      when :boolean
+        ' inclusion: { in: [true, false] }'
+      end
+    end
+
+    def validate_presence(allow_null)
+      return if allow_null
+      ' presence: true'
     end
   end
 

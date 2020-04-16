@@ -5,12 +5,12 @@ module TrailblazerScaffold
   class Generate
 
     def call(model_name)
-      unless (model = model_name.classify.safe_constantize) && model.ancestors.include?(ActiveRecord::Base)
+      unless (model = model_name.safe_constantize) && model.ancestors.include?(ActiveRecord::Base)
         return puts 'model does not exists'
       end
       actions = GetActions.new.call(model_name)
-      return unless actions.present?
       TrailblazerScaffold::Contract::Generate.new.call(model)
+      return unless actions.present?
       TrailblazerScaffold::Operation::Generate.new.call(model, actions)
     end
 
