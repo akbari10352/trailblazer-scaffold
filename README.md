@@ -2,6 +2,22 @@
 
 Trailblazer Scaffold will generate the contracts and operations based on the model and base actions(*create* *update* *destroy*).
 
+In contract you will have all the propeties expect(`id`, `created_at` and `updated_at`).
+
+Also below validations will be added
+
+1. Presence 
+
+2. Type 
+
+    * integer
+    * float
+    * boolean
+
+ 
+
+
+
 **First step**
 
 `gem install trailblazer_scaffold`
