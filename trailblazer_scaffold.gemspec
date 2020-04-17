@@ -14,9 +14,9 @@ Gem::Specification.new do |s|
     'lib/generators/trailblazer_scaffold/generate_generator.rb'
   ]
   s.metadata = {
-    'documentation_uri' => 'https://gitlab.com/mehrnoush10352/trailblazer_scaffold',
-    'homepage_uri'      => 'https://gitlab.com/mehrnoush10352/trailblazer_scaffold',
-    'source_code_uri'   => 'https://gitlab.com/mehrnoush10352/trailblazer_scaffold'
+    'documentation_uri' => 'https://github.com/akbari10352/trailblazer-scaffold',
+    'homepage_uri'      => 'https://github.com/akbari10352/trailblazer-scaffold',
+    'source_code_uri'   => 'https://github.com/akbari10352/trailblazer-scaffold'
   }
   s.homepage = 'https://gitlab.com/mehrnoush10352/trailblazer_scaffold'
   s.license = 'MIT'
