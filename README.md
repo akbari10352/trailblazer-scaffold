@@ -16,8 +16,6 @@ Also below validations will be added
 
  
 
-
-
 **First step**
 
 `gem install trailblazer_scaffold`
